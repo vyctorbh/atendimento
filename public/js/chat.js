@@ -101,7 +101,7 @@ $(function(){
 					$.ajax({
 					  method: "POST",
 					  url: url,
-					  data: { tipo: typeUser.val(), nome: name, email: email, telefone: yourPhone.val(), cidade: yourCity.val(), titulo: "Atendimento via chat", descricao: "Atendimento via chat", urlchat: 'http://dokkuapp.com:3001/chat/'+id }
+					  data: { tipo: typeUser.val(), nome: name, email: email, telefone: yourPhone.val(), cidade: yourCity.val(), titulo: "Atendimento via chat", descricao: "Atendimento via chat", urlchat: 'http://atendimentounicoop.herokuapp.com/chat/'+id }
 					})
 				  .done(function( msg ) {
 				    socket.emit('login', {user: name, avatar: email, id: id, tipo: typeUser.val(), email: email, city: yourCity.val(), phone: yourPhone.val()});
