@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<!--
+	This file is rendered by express.js, when the rurl /chat/123456 is visited in a browser.
+	It includes jQuery, socket.io.js (it is automatically served by the socket.io library), 
+	and a few more JavaScript files that you should check out.
+-->
+
+<html>
+
+<head>
+
+	<title>Atendimento Online - Unicoop</title>
+
+	<link type="text/css" rel="stylesheet" href="../css/stylesheet.css" />
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+	<header class="banner">
+
+		<h1 class="bannertext">
+			Unicoop Atendimento
+		</h1>
+
+	</header>
+
+
+	<section class="section">
+
+		<!-- These elements are displayed as white info cards in the middle of the screen -->
+
+		<div class="connected">
+
+			<img src="../img/headset.jpg" id="creatorImage" />
+
+			<div class="infoConnected">
+				<h5>INSIRA SEUS DADOS PARA SER ATENDIDO:</h5>
+				<br/>
+
+				<form class="loginForm">
+					<table id="yourtipotable">
+						<tr>
+							<td>Tipo de Cotação</td>
+						</tr>
+						<tr>
+							<td><input type="radio" id="yourtipo" name="yourtipo" value="54dd0ec02a048458200fec46" checked/>Pessoa Física</td><td><input type="radio" name="yourtipo" id="yourtipo" value="54dd0eda2a048458200fec47" />Pessoa Jurídica </td><td><input type="radio" name="yourtipo" id="yourtipo" value="54dd0ee32a048458200fec48" />Adesão</td>
+						</tr>
+					</table>
+					<input type="text" id="yourName" class="consultor" placeholder="Seu nome" /><br/>
+					<input type="text" id="yourEmail" class="consultor" placeholder="Seu e-mail" /><br/>
+					<input type="text" id="yourPhone" placeholder="Seu telefone" /><br/>
+					<input type="text" id="yourCity" placeholder="Sua cidade" /><br/>
+					<input type="hidden" id="typeUser" value="1" /><br/>
+					<input type="submit" id="yourEnter" value="Ser atendido agora" />
+				</form>
+
+			</div>
+
+		</div>
+
+		<div class="personinside">
+
+			<img src="../img/unnamed.jpg" id="ownerImage" />
+
+			<div class="infoInside">
+				<h2>Cliente <span class="nickname-chat"></span></h2>
+				<br/>
+
+				<form class="loginForm">
+					<input type="text" id="hisName" placeholder="Seu nome" /><br/>
+					<input type="text" id="hisEmail" placeholder="Seu e-mail" /><br/>
+					<input type="hidden" id="yourPhone" value="" /><br/>
+					<input type="hidden" id="yourCity" value="" /><br/>
+					<input type="hidden" id="typeUser" value="2" /><br/>
+					<input type="submit" id="hisEnter" value="Entrar" />
+				</form>
+
+			</div>
+
+		</div>
+		
+		<div class="invite-textfield client">
+
+			<h2>Aguarde, logo será atendido por um de nossos consultores!</h2>
+			<!--<h5>Invite a friend by sending them this URL</h5>-->
+
+			<div class="link">
+				<a title="Invite a friend" href="" id="link"></a>
+			</div>
+
+		</div>
+
+		<div class="invite-textfield consult">
+
+			<h2>Aguarde, logo será atendido por um de nossos consultores!</h2>
+			<!--<h5>Invite a friend by sending them this URL</h5>-->
+
+			<div class="link">
+				<a title="Invite a friend" href="" id="link"></a>
+			</div>
+
+		</div>
+
+		<div class="left">
+
+			<img src="../img/headset.jpg" id="leftImage" />
+
+			<div class="info">
+				<h2><span class="nickname-left"></span> deixou este suporte.</h2>
+			</div>
+
+		</div>
+
+		<div class="toomanypeople">
+
+			<h2>Oops, you can not join this chat!</h2>
+			<h5>There are already two people in it. Would you like to create a <a title="New Room" href="/create" id="room">new room</a>?</h5>
+
+		</div>
+
+		<div class="nomessages client">
+
+			<img src="../img/headset.jpg" id="noMessagesImage" />
+
+			<div class="info">
+				<h2>O consultor que irá te atender será <span class="nickname-chat"></span>.</h2>
+				<h5>Como podemos lhe ajudar?</h5>
+			</div>
+
+		</div>
+		
+		<div class="nomessages consult">
+
+			<img src="../img/unnamed.jpg" id="noMessagesImage" />
+
+			<div class="info">
+				<h2>Ola consultor.</h2>
+				<h5>Segue os dados do cliente:</h5>
+				<div>
+					<p><b>Nome:</b> <span class="nickname-chat"></span></p>
+					<p><b>E-mail:</b> <span class="nickname-email"></span></p>
+					<p><b>Telefone:</b> <span class="nickname-phone"></span></p>
+					<p><b>Cidade:</b> <span class="nickname-city"></span></p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="chatscreen">
+
+			<ul class="chats">
+				<!-- The chat messages will go here -->
+			</ul>
+
+		</div>
+
+	</section>
+
+	<footer>
+
+		<form id="chatform">
+
+			<textarea id="message" placeholder="Escreva aqui.."></textarea>
+			<input type="submit" id="submit" value="Enviar"/>
+
+		</form>
+
+	</footer>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="../js/moment.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="../js/chat.js"></script>
+</body>
+
+</html>
